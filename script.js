@@ -99,27 +99,7 @@ function setupSupportModal() {
   });
 }
 
-// Переключатель темы
-function setupThemeToggle() {
-  const toggle = document.getElementById('themeToggle');
-  const body = document.body;
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) body.classList.toggle('light', savedTheme === 'light');
-
-  toggle.addEventListener('click', () => {
-    body.classList.toggle('light');
-    localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
-  });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   new ParticleSystem();
   setupSupportModal();
-  setupThemeToggle();
-
-  document.body.style.opacity = '0';
-  setTimeout(() => {
-    document.body.style.transition = 'opacity 1s ease';
-    document.body.style.opacity = '1';
-  }, 100);
 });
